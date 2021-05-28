@@ -17,7 +17,7 @@ import timber.log.Timber
 class AsteroidRespository(private val asteroidDatabase: AsteroidDatabase) {
 
     fun insertAsteroids(){
-        AsteroidApi.retrofitService.getNearEarthObjects(getTodaysDate(), getSeventhDayDate(), Constants.API_KEY).enqueue(object:
+        AsteroidApi.retrofitService.getNearEarthObjects(getTodaysDate(), getSeventhDayDate(), Constants.api_key).enqueue(object:
             Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>) {
                 for (neoAsteroid in parseAsteroidsJsonResult(JSONObject(response.body()))) {
@@ -50,7 +50,7 @@ class AsteroidRespository(private val asteroidDatabase: AsteroidDatabase) {
     }
 
     fun insertPictureOfDay() {
-        AsteroidApi.retrofitService.getPictureOfDay(Constants.API_KEY).enqueue(object:
+        AsteroidApi.retrofitService.getPictureOfDay(Constants.api_key).enqueue(object:
             Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>) {
 
