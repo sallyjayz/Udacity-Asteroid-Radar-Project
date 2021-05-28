@@ -67,3 +67,13 @@ fun bindPictureOfDay(imageView: ImageView, pictureOfDay: PictureOfDay?) {
             context.getString(R.string.this_is_nasa_s_picture_of_day_showing_nothing_yet)
     }
 }
+
+@BindingAdapter("isHarzadousContentDescription")
+fun bindIsHarzadousDescription(imageView: ImageView, isHazardous: Boolean) {
+    val context = imageView.context
+    if (isHazardous) {
+        imageView.contentDescription = context.getString(R.string.potentially_hazardous_asteroid_image)
+    } else {
+        imageView.contentDescription = context.getString(R.string.not_hazardous_asteroid_image)
+    }
+}
