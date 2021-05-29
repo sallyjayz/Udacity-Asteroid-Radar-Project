@@ -77,3 +77,13 @@ fun bindIsHarzadousDescription(imageView: ImageView, isHazardous: Boolean) {
         imageView.contentDescription = context.getString(R.string.not_hazardous_asteroid_image)
     }
 }
+
+@BindingAdapter("isHarzadousIconContentDescription")
+fun bindIsHarzadousIconDescription(imageView: ImageView, isHazardous: Boolean) {
+    val context = imageView.context
+    if (isHazardous) {
+        imageView.contentDescription = context.getString(R.string.potentially_hazardous_asteroid_icon)
+    } else {
+        imageView.contentDescription = context.getString(R.string.not_hazardous_asteroid_icon)
+    }
+}
